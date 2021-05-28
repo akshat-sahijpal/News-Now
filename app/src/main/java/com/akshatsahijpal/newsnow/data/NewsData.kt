@@ -1,28 +1,23 @@
 package com.akshatsahijpal.newsnow.data
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
 import androidx.room.PrimaryKey
-
+@Entity(tableName = "news_data_srt")
 data class NewsData(
-    val articles: List<Article>,
-    val status: String,
-    val totalResults: Int
-) {
+    @ColumnInfo(name = "articles") var articles: List<Article>,
+    @ColumnInfo(name = "status") var status: String,
+    @ColumnInfo(name = "totalResults") var totalResults: Int,
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
-
+) {
     data class Article(
-        val author: String,
-        val content: String,
-        val description: String,
-        val publishedAt: String,
-        val source: Source,
-        val title: String,
-        val url: String,
-        val urlToImage: String
-    ) {
-        data class Source(
-            val id: Any,
-            val name: String
-        )
-    }
+        @ColumnInfo(name = "author") var author: String,
+        @ColumnInfo(name = "content") var content: String,
+        @ColumnInfo(name = "description") var description: String,
+        @ColumnInfo(name = "publishedAt") var publishedAt: String,
+        @ColumnInfo(name = "title") var title: String,
+        @ColumnInfo(name = "url") var url: String,
+        @ColumnInfo(name = "urlToImage") var urlToImage: String
+    )
 }
