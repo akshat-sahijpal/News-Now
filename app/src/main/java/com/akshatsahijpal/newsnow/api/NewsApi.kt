@@ -3,8 +3,6 @@ package com.akshatsahijpal.newsnow.api
 import com.akshatsahijpal.newsnow.data.NewsData
 import com.akshatsahijpal.newsnow.util.Constants
 import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Headers
 import retrofit2.http.Query
 
 interface NewsApi {

@@ -1,27 +1,32 @@
 package com.akshatsahijpal.newsnow.util
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.launch
-import java.lang.Exception
+import kotlinx.coroutines.flow.*
 
-fun <ResultType, RequestType> networkBoundResource(
-    query: () -> Flow<ResultType>, // from local database
-    fetch: suspend () -> RequestType, // get from remote
-    saveFetchedData: suspend (RequestType) -> Unit, // save new data to local db
-    shouldFetch: (ResultType) -> Boolean = { true }// is data stale?
+inline fun <ResultType, RequestType> networkBoundResource(
+    crossinline query: () -> Flow<ResultType>, // from local database
+    crossinline fetch: suspend () -> RequestType, // get from remote
+    crossinline  saveFetchedData: suspend (RequestType) -> Unit, // save new data to local db
+    crossinline  shouldFetch: (ResultType) -> Boolean = {
+        true
+    }// is data stale?
 ) = flow {
     var data = query().first() // from local db
-    if (shouldFetch(data)) { // if the data is stale
+     var flowSet =  if (shouldFetch(data)) { // if the data is stale
         emit(Resource.Loading(data)) // emit a loading screen
         try {
-            saveFetchedData(fetch()) // get new data from the server and save it to local database}
+            saveFetchedData(fetch()) // get new data from the server and save it to local database
+            query().map {
+                Resource.Success(it)
+            }
         } catch (throwable: Throwable) {
-
+            query().map {
+                Resource.Error(throwable, it)
+            }
+        }
+    }else{
+        query().map {
+            Resource.Success(it)
         }
     }
+    emitAll(flowSet)
 }

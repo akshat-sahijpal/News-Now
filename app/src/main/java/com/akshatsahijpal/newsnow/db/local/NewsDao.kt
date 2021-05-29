@@ -17,4 +17,7 @@ interface NewsDao {
 
     @Query("SELECT * FROM news_data_srt WHERE status == 'ok' ")
      fun getCachedData(): Flow<List<NewsData>>
+
+     @Query("DELETE FROM news_data_srt")
+     suspend fun deleteAll()
 }
