@@ -7,4 +7,7 @@ How it works-
      -> App gets the latest data from an API via Retrofit library 
      -> Gets the data from the net and caches it for viewing data in offline mode 
      
-     ![ezgif com-gif-maker](https://user-images.githubusercontent.com/80918746/120098805-8a345b00-c155-11eb-9d94-d9f2e7199cdb.gif)
+
+https://user-images.githubusercontent.com/80918746/120098831-b5b74580-c155-11eb-9169-b079b4aa6e15.mp4
+
+
