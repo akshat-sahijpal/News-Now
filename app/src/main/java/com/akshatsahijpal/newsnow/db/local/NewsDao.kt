@@ -12,12 +12,12 @@ interface NewsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(data: NewsData)
 
-    @Query("SELECT * FROM news_data_srt ")
-    suspend fun getAllData() : List<NewsData>
+      @Query("select * FROM news_data_srt ")
+      suspend fun getAllData() : List<NewsData>
 
-    @Query("SELECT * FROM news_data_srt WHERE status == 'ok' ")
-     fun getCachedData(): Flow<List<NewsData>>
+      @Query("SELECT * FROM news_data_srt WHERE status == 'ok' ")
+      fun getCachedData(): Flow<List<NewsData>>
 
-     @Query("DELETE FROM news_data_srt")
+      @Query("DELETE FROM news_data_srt")
      suspend fun deleteAll()
 }

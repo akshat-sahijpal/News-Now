@@ -4,18 +4,31 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.akshatsahijpal.newsnow.adapter.NewsAdapter
+import com.akshatsahijpal.newsnow.api.NewsApi
+import com.akshatsahijpal.newsnow.databinding.ActivityMainBinding
+import com.akshatsahijpal.newsnow.ui.viewmodel.RefinedViewModel
 import com.akshatsahijpal.newsnow.ui.viewmodel.testModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private val model by viewModels<testModel>()
+    var adapter= NewsAdapter()
+    private lateinit var _binding: ActivityMainBinding
+    private val model by viewModels<RefinedViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        model.data.observe(this){
-            var set = it.data?.get(0)?.articles?.get(0)?.content
-            Toast.makeText(applicationContext, "data ->$set", Toast.LENGTH_SHORT).show()
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(_binding.root)
+        _binding.apply {
+            recyclerView404.adapter = adapter
+            recyclerView404.layoutManager = LinearLayoutManager(applicationContext)
+        }
+        model.getRefinedData("Covid").observe(this){
+            GlobalScope.launch{ adapter.submitData(it) }
         }
     }
 }
