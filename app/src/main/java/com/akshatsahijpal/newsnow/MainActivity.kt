@@ -1,34 +1,49 @@
 package com.akshatsahijpal.newsnow
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.akshatsahijpal.newsnow.adapter.NewsAdapter
-import com.akshatsahijpal.newsnow.api.NewsApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.viewpager2.widget.ViewPager2
+import com.akshatsahijpal.newsnow.adapter.vp.BottomNavAdapter
 import com.akshatsahijpal.newsnow.databinding.ActivityMainBinding
-import com.akshatsahijpal.newsnow.ui.viewmodel.RefinedViewModel
-import com.akshatsahijpal.newsnow.ui.viewmodel.testModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    var adapter= NewsAdapter()
     private lateinit var _binding: ActivityMainBinding
-    private val model by viewModels<RefinedViewModel>()
+
+    // private val model by viewModels<RefinedViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(_binding.root)
-        _binding.apply {
-            recyclerView404.adapter = adapter
-            recyclerView404.layoutManager = LinearLayoutManager(applicationContext)
+        defaultSettings()
+        var pager = _binding.viewpager2
+        var menu = _binding.menu
+        pager.adapter = BottomNavAdapter(supportFragmentManager, lifecycle)
+        menu.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.homeIconBtn -> pager?.currentItem = 0// item 2
+                R.id.searchIconBtn -> pager?.currentItem = 1
+                else -> pager?.currentItem = 2
+            }
+            return@setOnNavigationItemSelectedListener true
         }
-        model.getRefinedData("Covid").observe(this){
-            GlobalScope.launch{ adapter.submitData(it) }
-        }
+        pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                when (position) {
+                    0 -> menu.menu.findItem(R.id.homeIconBtn)?.isChecked = true
+                    1 -> menu.menu.findItem(R.id.searchIconBtn)?.isChecked = true
+                    2 -> menu.menu.findItem(R.id.saveIconBtn)?.isChecked = true
+                }
+            }
+        })
+    }
+
+    private fun defaultSettings() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 }
