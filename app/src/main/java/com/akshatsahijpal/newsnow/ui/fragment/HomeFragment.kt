@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.get
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.akshatsahijpal.newsnow.adapter.vp.TabAdapter
 import com.akshatsahijpal.newsnow.databinding.FragmentHomeBinding
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,8 +26,11 @@ class HomeFragment : Fragment() {
         return _binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var act = activity as AppCompatActivity
+        act.setSupportActionBar(_binding.appBarLayout9)
         var pager = _binding.viewPager4074
         pager.adapter = TabAdapter(requireActivity().supportFragmentManager, lifecycle)
         TabLayoutMediator(_binding.tabLayout4054, _binding.viewPager4074) { tab, position ->
@@ -69,62 +73,34 @@ class HomeFragment : Fragment() {
                 }
             }
         }.attach()
-
-        pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                when (position) {
-                    0 -> {
-                        if (_binding.tabLayout4054.id == 0) {
-                            _binding.tabLayout4054[0].alpha = 1.0f
-                        }
-                    }
-                    1 -> {
-                        if (_binding.tabLayout4054.id == 1) {
-                            _binding.tabLayout4054[1].alpha = 1.0f
-                        }
-                    }
-                    2 -> {
-                        if (_binding.tabLayout4054.id == 2) {
-                            _binding.tabLayout4054[2].alpha = 1.0f
-                        }
-                    }
-                    3 -> {
-                        if (_binding.tabLayout4054.id == 3) {
-                            _binding.tabLayout4054[3].alpha = 1.0f
-                        }
-                    }
-                    4 -> {
-                        if (_binding.tabLayout4054.id == 4) {
-                            _binding.tabLayout4054[4].alpha = 1.0f
-                        }
-                    }
-                    5 -> {
-                        if (_binding.tabLayout4054.id == 5) {
-                            _binding.tabLayout4054[5].alpha = 1.0f
-                        }
-                    }
-                    6 -> {
-                        if (_binding.tabLayout4054.id == 6) {
-                            _binding.tabLayout4054[6].alpha = 1.0f
-                        }
-                    }
-                    7 -> {
-                        if (_binding.tabLayout4054.id == 7) {
-                            _binding.tabLayout4054[7].alpha = 1.0f
-                        }
-                    }
-                    8 -> {
-                        if (_binding.tabLayout4054.id == 8) {
-                            _binding.tabLayout4054[8].alpha = 1.0f
-                        }
-                    }
+        _binding.tabLayout4054.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                if (tab != null) {
+                    pager.setCurrentItem(tab.position)
                 }
             }
-        })
-        _binding.appBarLayout9.setNavigationOnClickListener {
 
-        }
-        setHasOptionsMenu(true)
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
+        pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+                super.onPageScrollStateChanged(state)
+            }
+
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                _binding.tabLayout4054.selectTab(_binding.tabLayout4054.getTabAt(position))
+            }
+        })
     }
 }

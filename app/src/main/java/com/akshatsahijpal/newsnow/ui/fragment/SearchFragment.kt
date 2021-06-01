@@ -46,8 +46,6 @@ class SearchFragment : Fragment() {
                 }
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                 override fun afterTextChanged(s: Editable?) {
-                    Toast.makeText(requireContext(), "text-> ${s.toString()}", Toast.LENGTH_SHORT)
-                        .show()
                     model.getRefinedData(s?.trim().toString()).observe(viewLifecycleOwner) {
                         GlobalScope.launch { adapter.submitData(it) }
                     }

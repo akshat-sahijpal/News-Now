@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/homeIconBtn"
+        android:id="@+id/homeFragment"
         android:icon="@drawable/ic_baseline_public_24"
         android:title="Headlines" />
     <item
-        android:id="@+id/searchIconBtn"
+        android:id="@+id/searchFragment"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Search" />
     <item
-        android:id="@+id/saveIconBtn"
+        android:id="@+id/saveNewsFragment"
         android:icon="@drawable/ic_baseline_favorite_border_24"
         android:title="Favourites" />
     <item
-        android:id="@+id/NotificationBtn"
+        android:id="@+id/notificationFragment"
         android:icon="@drawable/ic_baseline_notifications_active_24"
         android:title="Notification" />
 

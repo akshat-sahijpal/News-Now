@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.HomeFragment">
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/surface"
         android:id="@+id/appBarLayout"
         app:liftOnScroll="true">
-        <com.google.android.material.appbar.MaterialToolbar
-
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/appBarLayout9"
+            style="@style/Widget.MaterialComponents.Toolbar.Surface"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:elevation="20dp"
-            android:id="@+id/appBarLayout9"
-            app:navigationIcon="@drawable/ic_baseline_search_24"
-            />
+            android:elevation="20dp">
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.tabs.TabLayout
@@ -29,7 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_below="@id/appBarLayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
         android:fillViewport="true"
+        android:nestedScrollingEnabled="true"
         app:tabGravity="fill"
         app:tabMaxWidth="0dp"
         app:tabMode="scrollable" />
@@ -45,4 +43,3 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </RelativeLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
