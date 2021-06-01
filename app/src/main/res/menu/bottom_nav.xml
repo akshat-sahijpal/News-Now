@@ -4,7 +4,7 @@
     <item
         android:id="@+id/homeIconBtn"
         android:icon="@drawable/ic_baseline_public_24"
-        android:title="Breaking News" />
+        android:title="Headlines" />
     <item
         android:id="@+id/searchIconBtn"
         android:icon="@drawable/ic_baseline_search_24"
@@ -13,5 +13,10 @@
         android:id="@+id/saveIconBtn"
         android:icon="@drawable/ic_baseline_favorite_border_24"
         android:title="Favourites" />
+    <item
+        android:id="@+id/NotificationBtn"
+        android:icon="@drawable/ic_baseline_notifications_active_24"
+        android:title="Notification" />
+
 
 </menu>

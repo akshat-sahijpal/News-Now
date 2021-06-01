@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.HomeFragment">
-    <com.google.android.material.tabs.TabLayout
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="55sp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/surface"
+        android:id="@+id/appBarLayout"
+        app:liftOnScroll="true">
+        <com.google.android.material.appbar.MaterialToolbar
+
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="20dp"
+            android:id="@+id/appBarLayout9"
+            app:navigationIcon="@drawable/ic_baseline_search_24"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout4054"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_below="@id/appBarLayout"
+        android:fillViewport="true"
+        app:tabGravity="fill"
+        app:tabMaxWidth="0dp"
+        app:tabMode="scrollable" />
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager4074"
         android:layout_width="match_parent"
@@ -21,3 +45,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

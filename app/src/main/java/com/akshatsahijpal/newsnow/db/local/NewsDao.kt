@@ -21,6 +21,4 @@ interface NewsDao {
       @Query("DELETE FROM news_data_srt")
       suspend fun deleteAll()
 
-      @Insert(onConflict = OnConflictStrategy.REPLACE)
-      suspend fun InsertFav(data: NewsData.Article)
 }
