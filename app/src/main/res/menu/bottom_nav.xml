@@ -3,15 +3,15 @@
 
     <item
         android:id="@+id/homeIconBtn"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home" />
+        android:icon="@drawable/ic_baseline_public_24"
+        android:title="Breaking News" />
     <item
         android:id="@+id/searchIconBtn"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Search" />
     <item
         android:id="@+id/saveIconBtn"
-        android:icon="@drawable/ic_baseline_save_24"
-        android:title="Save" />
+        android:icon="@drawable/ic_baseline_favorite_border_24"
+        android:title="Favourites" />
 
 </menu>

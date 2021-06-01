@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="370dp"
     android:elevation="20dp"
     app:cardBackgroundColor="@color/surface1"
     android:layout_margin="20dp"
-    app:cardCornerRadius="30dp">
+    app:cardCornerRadius="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
         <ImageView
             android:id="@+id/newsImage"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="200dp"
             android:src="@drawable/ic_launcher_background" />
 
         <TextView
@@ -29,49 +30,58 @@
             android:text="news_headline_the_topic_goes_here"
             android:textColor="@color/purple_200"
             android:padding="10dp"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/subHeadingNews"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:ellipsize="end"
-            android:maxLines="2"
+            android:maxLines="3"
+            android:textStyle="bold"
             android:padding="5dp"
             android:textColor="@color/white"
             android:text="hello_this_is_the_subheading_of_the_news_you_can_check_the_full_news_by_clicking_on_this_particular_card_ok_ok_click_it_to_view_the_full_news"
             android:textSize="15sp" />
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/newsAuthor"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
+                android:layout_gravity="start"
+                android:layout_marginStart="80dp"
+                android:layout_marginEnd="125dp"
+                android:ellipsize="marquee"
                 android:padding="5dp"
+                android:singleLine="true"
                 android:text="author_name_goes_here"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/likeButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:padding="5dp"
-                android:text="th"
-                android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/newsAtTime"
+            <ImageButton
+                android:id="@+id/likeButton"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/surface1"
                 android:padding="5dp"
-                android:text="time"
-                android:textColor="@color/white" />
-        </LinearLayout>
+                android:src="@drawable/ic_baseline_favorite_border_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
