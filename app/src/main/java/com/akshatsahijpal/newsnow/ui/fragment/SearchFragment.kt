@@ -20,6 +20,8 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
     private var adapter = NewsAdapter()
+    private var key_string: String = "com.akshatsahijpal.newsnow.ui.fragment"
+    private var defVal: String? = null
     private lateinit var _binding: FragmentSearchBinding
     private val model by viewModels<RefinedViewModel>()
     override fun onCreateView(
@@ -31,6 +33,10 @@ class SearchFragment : Fragment() {
         return _binding.root
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        defVal = savedInstanceState?.getString(key_string)
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding.apply {
@@ -44,13 +50,22 @@ class SearchFragment : Fragment() {
                     after: Int
                 ) {
                 }
+
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                 override fun afterTextChanged(s: Editable?) {
-                    model.getRefinedData(s?.trim().toString()).observe(viewLifecycleOwner) {
+                    defVal = s.toString()
+                    model.getRefinedData(
+                        savedInstanceState?.getString(key_string) ?: s?.trim().toString()
+                    ).observe(viewLifecycleOwner) {
                         GlobalScope.launch { adapter.submitData(it) }
                     }
                 }
             })
         }
+    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Toast.makeText(requireContext(), "Triggered with $defVal", Toast.LENGTH_SHORT).show()
+        outState.putString(key_string, defVal)
     }
 }

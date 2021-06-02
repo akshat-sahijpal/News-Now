@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(_binding.root)
         defaultSettings()
-        var btm = _binding.menu
-        var navController = findNavController(R.id.fragmentContainerView)
+        var btm = _binding.menu3322
+        var navController = findNavController(R.id.fragmentContainerView44)
         btm.setupWithNavController(navController)
     }
 

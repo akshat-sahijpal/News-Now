@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.akshatsahijpal.newsnow.R
 import com.akshatsahijpal.newsnow.adapter.vp.TabAdapter
 import com.akshatsahijpal.newsnow.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayout
@@ -15,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var _binding: FragmentHomeBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,7 +27,7 @@ class HomeFragment : Fragment() {
         return _binding.root
     }
 
-
+/*
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var act = activity as AppCompatActivity
@@ -76,31 +77,19 @@ class HomeFragment : Fragment() {
         _binding.tabLayout4054.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 if (tab != null) {
-                    pager.setCurrentItem(tab.position)
+                    pager.currentItem = tab.position
                 }
             }
-
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
 
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
         pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-            }
-
-            override fun onPageScrollStateChanged(state: Int) {
-                super.onPageScrollStateChanged(state)
-            }
 
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 _binding.tabLayout4054.selectTab(_binding.tabLayout4054.getTabAt(position))
             }
         })
-    }
+    }*/
 }
