@@ -1,21 +1,27 @@
 package com.akshatsahijpal.newsnow.ui.fragment
 
+import android.R
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.akshatsahijpal.newsnow.adapter.NewsAdapter
 import com.akshatsahijpal.newsnow.databinding.FragmentSearchBinding
+import com.akshatsahijpal.newsnow.databinding.SrIndexChipsBinding
 import com.akshatsahijpal.newsnow.ui.viewmodel.RefinedViewModel
+import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -39,6 +45,7 @@ class SearchFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setCategoryChips(arrayListOf("Corona-virus", "china", "war", "ww3"))
         _binding.apply {
             recyclerViewA.adapter = adapter
             recyclerViewA.layoutManager = LinearLayoutManager(requireContext())
@@ -50,10 +57,12 @@ class SearchFragment : Fragment() {
                     after: Int
                 ) {
                 }
-
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                 override fun afterTextChanged(s: Editable?) {
                     defVal = s.toString()
+                    _binding.chipGrp.isVisible = false
+                    _binding.scroller.isVisible = false
+                    _binding.Filter.isVisible = false
                     model.getRefinedData(
                         savedInstanceState?.getString(key_string) ?: s?.trim().toString()
                     ).observe(viewLifecycleOwner) {
@@ -67,5 +76,18 @@ class SearchFragment : Fragment() {
         super.onSaveInstanceState(outState)
         Toast.makeText(requireContext(), "Triggered with $defVal", Toast.LENGTH_SHORT).show()
         outState.putString(key_string, defVal)
+    }
+
+    fun setCategoryChips(categorys: ArrayList<String?>) {
+        for (category in categorys) {
+            val mChip = SrIndexChipsBinding.inflate(layoutInflater).root
+            mChip.text = category
+            mChip.setOnCheckedChangeListener { button, isChecked ->
+                if(isChecked){
+                  _binding.SearchFieldT.setText(button.text)
+                }
+            }
+            _binding.chipGrp.addView(mChip)
+        }
     }
 }
