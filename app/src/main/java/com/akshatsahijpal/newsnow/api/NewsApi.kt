@@ -25,6 +25,13 @@ interface NewsApi {
         @Query("language") lang: String = "en",
         @Query("apiKey") authKey: String = KEY
     ): NewsData
+
+    @GET("top-headlines")
+    suspend fun getForCountry(
+        @Query("country") count: String = "in",
+        @Query("apiKey") authKey: String = KEY
+    ) : NewsData
+
     @GET("everything")
     suspend fun getEveryNewsForParameterQ(
         @Query("q") searchParameter: String,
