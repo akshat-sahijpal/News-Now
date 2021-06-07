@@ -5,52 +5,69 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context=".ui.fragment.SearchFragment">
-            <TextView
-                android:id="@+id/SearchTextSign"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:text="Search"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:textStyle="bold" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/testSelayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/SearchTextSign"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="30dp"
-                app:startIconDrawable="@drawable/ic_baseline_search_24">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/testSelayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp"
+        app:startIconDrawable="@drawable/ic_baseline_search_24">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/SearchFieldT"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Search Latest News"
-                    android:imeOptions="actionDone"
-                    android:inputType="text"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/surface"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/SearchFieldT"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Search Latest News"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/surface"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
-            </com.google.android.material.textfield.TextInputLayout>
- 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewA"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/testSelayout"
-                android:layout_marginTop="3dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/card_news_item" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewA"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/testSelayout"
+        android:layout_marginTop="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/testSelayout"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Search By Category"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/scroller"
+        android:layout_width="match_parent"
+        android:layout_height="583dp"
+        android:layout_below="@+id/Filter"
+        android:layout_marginTop="12dp">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGrp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/testSelayout"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp">
+        </com.google.android.material.chip.ChipGroup>
+    </ScrollView>
 </RelativeLayout>

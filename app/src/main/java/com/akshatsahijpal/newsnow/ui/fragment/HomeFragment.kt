@@ -26,8 +26,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return _binding.root
     }
-
-/*
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var act = activity as AppCompatActivity
@@ -91,5 +89,5 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 _binding.tabLayout4054.selectTab(_binding.tabLayout4054.getTabAt(position))
             }
         })
-    }*/
+    }
 }
