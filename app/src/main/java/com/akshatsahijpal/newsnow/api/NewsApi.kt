@@ -30,7 +30,15 @@ interface NewsApi {
     suspend fun getForCountry(
         @Query("country") count: String = "in",
         @Query("apiKey") authKey: String = KEY
-    ) : NewsData
+    ): NewsData
+
+    @GET("everything")
+    suspend fun getLatestNews(
+        @Query("sortBy") atTime: String = "popularity",
+        @Query("language") lang: String = "en",
+        @Query("q") searchParameter: String = "covid",
+        @Query("apiKey") authKey: String = KEY
+    ): NewsData
 
     @GET("everything")
     suspend fun getEveryNewsForParameterQ(
