@@ -3,7 +3,15 @@ package com.akshatsahijpal.newsnow.adapter.vp
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.akshatsahijpal.newsnow.ui.fragment.subFragment.*
+import com.akshatsahijpal.newsnow.ui.fragment.headlines.subFragment.business.BusinessNewsFragment
+import com.akshatsahijpal.newsnow.ui.fragment.headlines.subFragment.country.CountrySpecificNewsFragment
+import com.akshatsahijpal.newsnow.ui.fragment.headlines.subFragment.entertainment.EntertainmentFragment
+import com.akshatsahijpal.newsnow.ui.fragment.headlines.subFragment.health.HealthFragment
+import com.akshatsahijpal.newsnow.ui.fragment.headlines.subFragment.latest.LatestFragment
+import com.akshatsahijpal.newsnow.ui.fragment.headlines.subFragment.science.ScienceNewsFragment
+import com.akshatsahijpal.newsnow.ui.fragment.headlines.subFragment.sports.SportsNewsFragment
+import com.akshatsahijpal.newsnow.ui.fragment.headlines.subFragment.technology.TechnologyNewsFragment
+import com.akshatsahijpal.newsnow.ui.fragment.headlines.subFragment.word.WorldNewsFragment
 
 class TabAdapter constructor(
     manager: FragmentManager, lifecycle: Lifecycle

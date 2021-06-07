@@ -9,16 +9,15 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NewsDao {
-        @Insert(onConflict = OnConflictStrategy.REPLACE)
-        suspend fun insert(data: NewsData)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(data: NewsData)
 
-      @Query("select * FROM news_data_srt ")
-      suspend fun getAllData() : List<NewsData>
+    @Query("select * FROM news_data_srt ")
+    suspend fun getAllData(): List<NewsData>
 
-      @Query("SELECT * FROM news_data_srt WHERE status == 'ok' ")
-      fun getCachedData(): Flow<List<NewsData>>
+    @Query("SELECT * FROM news_data_srt WHERE status == 'ok' ")
+    fun getCachedData(): Flow<List<NewsData>>
 
-      @Query("DELETE FROM news_data_srt")
-      suspend fun deleteAll()
-
+    @Query("DELETE FROM news_data_srt")
+    suspend fun deleteAll()
 }

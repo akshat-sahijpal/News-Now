@@ -1,4 +1,4 @@
-package com.akshatsahijpal.newsnow.repository
+package com.akshatsahijpal.newsnow.repository.favourite
 
 import com.akshatsahijpal.newsnow.db.local.NewsDao
 import javax.inject.Inject

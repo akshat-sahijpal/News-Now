@@ -1,4 +1,4 @@
-package com.akshatsahijpal.newsnow.ui.fragment
+package com.akshatsahijpal.newsnow.ui.fragment.search
 
 import android.os.Bundle
 import android.text.Editable
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.akshatsahijpal.newsnow.adapter.NewsAdapter
 import com.akshatsahijpal.newsnow.databinding.FragmentSearchBinding
 import com.akshatsahijpal.newsnow.databinding.SrIndexChipsBinding
-import com.akshatsahijpal.newsnow.ui.viewmodel.RefinedViewModel
+import com.akshatsahijpal.newsnow.ui.fragment.headlines.viewmodel.RefinedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -74,8 +74,16 @@ class SearchFragment : Fragment() {
 
     private fun designSearchTab() {
 //        business entertainment health science sports technology
-        setCategoryChips(arrayListOf("business", "entertainment", "health", "science", "sports", "technology "))
-
+        setCategoryChips(
+            arrayListOf(
+                "business",
+                "entertainment",
+                "health",
+                "science",
+                "sports",
+                "technology "
+            )
+        )
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
