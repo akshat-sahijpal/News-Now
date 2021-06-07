@@ -7,23 +7,27 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface NewsApi {
-    companion object{
+    companion object {
         var BASE_URL = "https://newsapi.org/v2/"
         var KEY = Constants.API_KEY
     }
+
     @GET("everything")
     suspend fun getEveryNews(
         @Query("q") searchParameter: String,
         @Query("apiKey") authKey: String = KEY
-    ) : NewsData
+    ): NewsData
 
-
-
-
+    // top-headlines
+    @GET("top-headlines")
+    suspend fun getTopNews(
+        @Query("category") category: String,
+        @Query("language") lang: String = "en",
+        @Query("apiKey") authKey: String = KEY
+    ): NewsData
     @GET("everything")
     suspend fun getEveryNewsForParameterQ(
         @Query("q") searchParameter: String,
         @Query("apiKey") authKey: String = KEY
-    ) : List<NewsRefinedData>
-
+    ): List<NewsRefinedData>
 }

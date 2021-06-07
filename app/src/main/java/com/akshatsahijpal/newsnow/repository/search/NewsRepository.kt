@@ -1,4 +1,4 @@
-package com.akshatsahijpal.newsnow.repository
+package com.akshatsahijpal.newsnow.repository.search
 
 import androidx.room.withTransaction
 import com.akshatsahijpal.newsnow.api.NewsApi

@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.akshatsahijpal.newsnow.ui.fragment.HomeFragment"
+        android:name="com.akshatsahijpal.newsnow.ui.fragment.headlines.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.akshatsahijpal.newsnow.ui.fragment.SearchFragment"
+        android:name="com.akshatsahijpal.newsnow.ui.fragment.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/saveNewsFragment"
-        android:name="com.akshatsahijpal.newsnow.ui.fragment.SaveNewsFragment"
+        android:name="com.akshatsahijpal.newsnow.ui.fragment.favourites.SaveNewsFragment"
         android:label="fragment_save_news"
         tools:layout="@layout/fragment_save_news" />
     <fragment
         android:id="@+id/notificationFragment"
-        android:name="com.akshatsahijpal.newsnow.ui.fragment.NotificationFragment"
+        android:name="com.akshatsahijpal.newsnow.ui.fragment.notifications.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
 </navigation>

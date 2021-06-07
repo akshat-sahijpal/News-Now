@@ -1,4 +1,4 @@
-package com.akshatsahijpal.newsnow.ui.fragment
+package com.akshatsahijpal.newsnow.ui.fragment.headlines
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,6 +26,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return _binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var act = activity as AppCompatActivity
@@ -78,6 +79,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     pager.currentItem = tab.position
                 }
             }
+
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
 
             override fun onTabReselected(tab: TabLayout.Tab?) {}
