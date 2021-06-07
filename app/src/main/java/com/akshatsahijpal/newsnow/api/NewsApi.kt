@@ -18,9 +18,12 @@ interface NewsApi {
     ) : NewsData
 
 
+
+
     @GET("everything")
     suspend fun getEveryNewsForParameterQ(
         @Query("q") searchParameter: String,
         @Query("apiKey") authKey: String = KEY
     ) : List<NewsRefinedData>
+
 }

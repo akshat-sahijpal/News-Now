@@ -49,7 +49,7 @@
         android:layout_below="@+id/testSelayout"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
-        android:text="Trending Topics"
+        android:text="Search By Category"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold" />
