@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.akshatsahijpal.newsnow.adapter.NewsAdapter
 import com.akshatsahijpal.newsnow.databinding.FragmentSearchBinding
@@ -47,6 +48,7 @@ class SearchFragment : Fragment() {
         _binding.apply {
             recyclerViewA.adapter = adapter
             recyclerViewA.layoutManager = LinearLayoutManager(requireContext())
+            _binding.shimmerFrameLayout.isVisible = false
             SearchFieldT.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(
                     s: CharSequence?,
@@ -66,6 +68,16 @@ class SearchFragment : Fragment() {
                         savedInstanceState?.getString(key_string) ?: s?.trim().toString()
                     ).observe(viewLifecycleOwner) {
                         GlobalScope.launch { adapter.submitData(it) }
+                    }
+                    adapter.addLoadStateListener {
+                        if (it.source.refresh is LoadState.Loading) {
+                            _binding.shimmerFrameLayout.isVisible = true
+                            _binding.shimmerFrameLayout.startShimmer()
+                        } else {
+                            _binding.shimmerFrameLayout.stopShimmer()
+                            _binding.shimmerFrameLayout.isVisible = false
+                        }
+                        _binding.recyclerViewA.isVisible = it.source.refresh is LoadState.NotLoading
                     }
                 }
             })
