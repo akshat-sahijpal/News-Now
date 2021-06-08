@@ -8,3 +8,8 @@ How it works-
      -> Gets the data from the net and caches it for viewing data in offline mode 
      
 
+
+
+
+https://user-images.githubusercontent.com/80918746/121218860-c1ff7900-c8a0-11eb-8002-15d6645edb88.mp4
+
