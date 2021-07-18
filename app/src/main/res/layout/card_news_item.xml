@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="370dp"
     android:elevation="20dp"
-    app:cardBackgroundColor="@color/surface1"
+    app:cardBackgroundColor="@color/white"
     android:layout_margin="20dp"
+    app:cardElevation="50dp"
     app:cardCornerRadius="20dp">
 
     <LinearLayout
@@ -28,7 +29,7 @@
             android:maxLines="1"
             android:textStyle="bold"
             android:text="news_headline_the_topic_goes_here"
-            android:textColor="@color/purple_200"
+            android:textColor="@color/black"
             android:padding="10dp"
             android:textSize="20sp" />
 
@@ -40,7 +41,6 @@
             android:maxLines="3"
             android:textStyle="bold"
             android:padding="5dp"
-            android:textColor="@color/white"
             android:text="hello_this_is_the_subheading_of_the_news_you_can_check_the_full_news_by_clicking_on_this_particular_card_ok_ok_click_it_to_view_the_full_news"
             android:textSize="15sp" />
 
@@ -60,7 +60,7 @@
                 android:padding="5dp"
                 android:singleLine="true"
                 android:text="author_name_goes_here"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/likeButton"
@@ -76,9 +76,9 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="3dp"
-                android:background="@color/surface1"
+                android:background="@color/white"
                 android:padding="5dp"
-                android:src="@drawable/ic_baseline_favorite_border_24"
+                android:src="@drawable/ic_baseline_favorite_border_2432"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

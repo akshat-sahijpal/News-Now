@@ -21,7 +21,7 @@ class NewsAdapter : PagingDataAdapter<NewsData.Article, NewsAdapter.Holder>(Diff
                 newsHeadlines.text = current.title
                 subHeadingNews.text = current.content
                 likeButton.setOnClickListener {
-                    likeButton.setImageResource(R.drawable.ic_baseline_favorite_24)
+                    likeButton.setImageResource(R.drawable.ic_baseline_favorite_243)
                     FavouritesDataStore().save(current)
                 }
             }

@@ -88,12 +88,20 @@ class SearchFragment : Fragment() {
 //        business entertainment health science sports technology
         setCategoryChips(
             arrayListOf(
+                "Kadambini Ganguly",
+                "Navjot Singh Sidhu",
+                "Cricket",
+                "Manchester United",
+                "Nelson Mandela",
+                "England vs Pakistan",
+                "Smriti Mandhana",
+                "Mumbai rains",
                 "business",
                 "entertainment",
                 "health",
                 "science",
                 "sports",
-                "technology "
+                "technology",
             )
         )
     }

@@ -24,7 +24,7 @@
             android:hint="Search Latest News"
             android:imeOptions="actionDone"
             android:inputType="text"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="@color/surface"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -43,7 +43,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <include layout="@layout/for_shimmer_lay" />
             <include layout="@layout/for_shimmer_lay" />
             <include layout="@layout/for_shimmer_lay" />
@@ -68,8 +67,8 @@
         android:layout_below="@+id/testSelayout"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
-        android:text="Search By Category"
-        android:textColor="@color/white"
+        android:text="Top searches"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -79,7 +78,6 @@
         android:layout_height="583dp"
         android:layout_below="@+id/Filter"
         android:layout_marginTop="12dp">
-
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGrp"
             android:layout_width="wrap_content"
@@ -88,5 +86,6 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="5dp">
         </com.google.android.material.chip.ChipGroup>
+
     </ScrollView>
 </RelativeLayout>

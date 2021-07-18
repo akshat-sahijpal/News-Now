@@ -15,7 +15,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var _binding: FragmentHomeBinding
     override fun onCreateView(
