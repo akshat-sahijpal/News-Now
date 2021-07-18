@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
         var navController = findNavController(R.id.fragmentContainerView44)
         btm.setupWithNavController(navController)
     }
-    // Enables Dark Theme
+    // Enables Light Theme
     private fun defaultSettings() {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 }
