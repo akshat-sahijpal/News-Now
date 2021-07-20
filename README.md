@@ -16,7 +16,13 @@ Offline Caching feature is also available in the code (If suddenly the network g
 </p>
 
 <h1> Preview </h1>
+
+
+
 https://user-images.githubusercontent.com/80918746/126085723-d3187757-0935-4813-a446-e1bdb6e34e38.mp4
+
+
+
 
 
 <h2> Currently App is in beta version </h2>
