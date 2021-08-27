@@ -1,6 +1,6 @@
 # News-Now
-Get The latest news from News Now App 
-This App Displays the latest news for any location/time/about/duration
+Get The latest news from the App, 
+The App Displays the latest news for any location/time/topic
 
 <h1>How it works </h1>
  
